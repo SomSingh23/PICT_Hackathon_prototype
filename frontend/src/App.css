@@ -45,6 +45,8 @@ p {
   height: 65vh;
   width: 75vw;
   border-radius: 10px;
+  padding-right: 15px;
+  box-sizing: border-box;
   border: 2px solid #006600;
 }
 .prompt input {

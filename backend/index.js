@@ -13,7 +13,6 @@ app.get("/", (req, res) => {
   res.send("server running");
 });
 app.post("/chat/bot1", async (req, res) => {
-  console.log("req body", req.body);
   let prompt = req.body.prompt;
   let data = await run(prompt);
   res.status(200).json({
