@@ -16,7 +16,6 @@ const App = () => {
     setValue("");
     setData({ ...data.data });
     setLoading((p) => !p);
-    console.log(data.data);
   };
   return (
     <div className="app">
