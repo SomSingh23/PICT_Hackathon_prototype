@@ -54,6 +54,7 @@ p {
   height: 100%;
   transition: all 1s;
   background-color: transparent;
+  font-family: "Urbanist", sans-serif;
   border: 1px solid #006600;
   padding: 15px;
   box-sizing: border-box;
