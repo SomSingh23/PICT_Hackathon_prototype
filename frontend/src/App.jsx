@@ -10,7 +10,7 @@ const App = () => {
     setCount((p) => p + 1);
     setLoading((p) => !p);
     setData({ user: value, response: "..." });
-    let data = await axios.post("production server", {
+    let data = await axios.post("http://localhost:3000/chat/bot1", {
       prompt: value,
     });
     setValue("");
