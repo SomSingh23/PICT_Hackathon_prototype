@@ -13,7 +13,7 @@ p {
   width: 100vw;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: start;
   padding-left: 50px;
   padding-bottom: 20px;
@@ -24,9 +24,11 @@ p {
   width: 75vw;
 }
 .heading h1 {
+  padding-top: 24px;
+  box-sizing: border-box;
   margin: 0;
   text-align: center;
-  font-size: 50px;
+  font-size: 55px;
 }
 .prompt {
   display: flex;
@@ -48,6 +50,7 @@ p {
   padding-right: 15px;
   box-sizing: border-box;
   border: 2px solid #006600;
+  /* border-right: 2px solid rgb(0, 0, 0); */
 }
 .prompt input {
   width: 100%;
@@ -56,6 +59,7 @@ p {
   background-color: transparent;
   font-family: "Lora", serif;
   border: 1px solid #006600;
+  /* border: 1px solid lightgreen; */
   padding: 15px;
   box-sizing: border-box;
   color: #006600;
