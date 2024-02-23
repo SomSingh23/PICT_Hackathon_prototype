@@ -1,39 +1,22 @@
 import "./App.css";
-<<<<<<< Updated upstream
-import { useState } from "react";
-import axios from "axios";
-=======
 import React, { useState } from 'react';
 import axios from 'axios';
 import {marked} from 'marked';
->>>>>>> Stashed changes
 const App = () => {
   let [value, setValue] = useState("");
   let [data, setData] = useState({});
   let [count, setCount] = useState(0);
   let [loading, setLoading] = useState(false);
-<<<<<<< Updated upstream
-  let handlePrompt = async () => {
-    setCount((p) => p + 1);
-    setLoading((p) => !p);
-=======
   let [formattedResponse,setFormattedResponse]=useState("");
 
   const handlePrompt = async () => {
     setCount((p) => p + 1);
     setLoading(true);
-
->>>>>>> Stashed changes
     setData({ user: value, response: "..." });
     let data = await axios.post("http://localhost:3000/chat/bot1", {
       prompt: value,
     });
     setValue("");
-<<<<<<< Updated upstream
-    setData({ ...data.data });
-    setLoading((p) => !p);
-  };
-=======
     setData({ ...response.data });
     setLoading(false); // Set loading to false when response is received
     setFormattedResponse(boldText(response.data.response));
@@ -51,8 +34,6 @@ const App = () => {
     console.log(res);
     return res;
   };
-
->>>>>>> Stashed changes
   return (
     <div className="app">
       <div className="content">
