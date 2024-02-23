@@ -1,21 +1,38 @@
 import "./App.css";
-import { useState } from "react";
-import axios from "axios";
+import React, { useState } from 'react';
+import axios from 'axios';
+import {marked} from 'marked';
 const App = () => {
   let [value, setValue] = useState("");
   let [data, setData] = useState({});
   let [count, setCount] = useState(0);
   let [loading, setLoading] = useState(false);
-  let handlePrompt = async () => {
+  let [formattedResponse,setFormattedResponse]=useState("");
+
+  const handlePrompt = async () => {
     setCount((p) => p + 1);
-    setLoading((p) => !p);
+    setLoading(true);
     setData({ user: value, response: "..." });
     let data = await axios.post("http://localhost:3000/chat/bot1", {
       prompt: value,
     });
     setValue("");
-    setData({ ...data.data });
-    setLoading((p) => !p);
+    setData({ ...response.data });
+    setLoading(false); // Set loading to false when response is received
+    setFormattedResponse(boldText(response.data.response));
+    console.log(formattedResponse);
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      handlePrompt();
+    }
+  };
+
+  const boldText = (text) => {
+    const res = marked.parse(text);
+    console.log(res);
+    return res;
   };
   return (
     <div className="app">
@@ -85,6 +102,7 @@ const App = () => {
               onChange={(e) => {
                 setValue(e.target.value);
               }}
+              onKeyDown={handleKeyDown}
             />
           )}
           {loading === false ? (
