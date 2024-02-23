@@ -21,7 +21,7 @@ const App = () => {
     <div className="app">
       <div className="content">
         <div className="heading">
-          <h1 style={{ color: "#48948b" }}>Health-GPT</h1>
+          <h1 style={{ color: "#3e8078" }}>Health-GPT</h1>
         </div>
         <div className="conservation">
           {count === 0 ? (
