@@ -13,12 +13,19 @@ app.get("/", (req, res) => {
   res.send("server running");
 });
 app.post("/chat/bot1", async (req, res) => {
-  let prompt = req.body.prompt;
-  let data = await run(prompt);
-  res.status(200).json({
-    user: prompt,
-    response: data,
-  });
+  try {
+    let prompt = req.body.prompt;
+    let data = await run(prompt);
+    return res.status(200).json({
+      user: prompt,
+      response: data,
+    });
+  } catch (err) {
+    return res.status(200).json({
+      user: prompt,
+      response: "something went wrong 😢",
+    });
+  }
 });
 app.get("*", (req, res) => {
   res.status(404).send("404 not found");
