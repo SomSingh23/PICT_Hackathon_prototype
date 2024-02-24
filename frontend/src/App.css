@@ -6,7 +6,7 @@
   width: 100vw;
 }
 p {
-  font-size: 20px;
+  font-size: 25px;
 }
 .content {
   height: 100vh;
@@ -47,7 +47,7 @@ p {
   height: 65vh;
   width: 75vw;
   border-radius: 10px;
-  padding-right: 15px;
+  padding-right: 10px;
   box-sizing: border-box;
   border: 2px solid #006600;
   /* border-right: 2px solid rgb(0, 0, 0); */

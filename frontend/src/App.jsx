@@ -7,15 +7,24 @@ const App = () => {
   let [count, setCount] = useState(0);
   let [loading, setLoading] = useState(false);
   let handlePrompt = async () => {
-    setCount((p) => p + 1);
-    setLoading((p) => !p);
-    setData({ user: value, response: "..." });
-    let data = await axios.post("http://localhost:3000/chat/bot1", {
-      prompt: value,
-    });
-    setValue("");
-    setData({ ...data.data });
-    setLoading((p) => !p);
+    try {
+      setCount((p) => p + 1);
+      setLoading((p) => !p);
+      setData({ user: value, response: "..." });
+      let data = await axios.post("http://localhost:3000/chat/bot1", {
+        prompt: value,
+      });
+      setValue("");
+      setData({ ...data.data });
+      setLoading((p) => !p);
+    } catch (err) {
+      let newObj = {
+        user: value,
+        response: "Network Error 😢",
+      };
+      setData({ ...newObj });
+      setLoading((p) => !p);
+    }
   };
   return (
     <div className="app">
